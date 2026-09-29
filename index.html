@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kalkulator Gaya & Impuls</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="cover">
+  <div class="profile-pic-wrapper"> 
+    <img src="image/profil.jpg" alt="Foto Profil" class="profile-pic" />
+
+  </div>
+  <h1><span id="namaUser">Putri Salsa Christina</span></h1>
+  <h2><span id="kelasUser">X PPLG 1</span></h2>
+  <h3>Kalkulator Gaya & Impuls</h3>
+</div>
+
+  <div id="app" style="display: none;">
+    <div class="mode-toggle">
+      <button id="modeButton" onclick="toggleMode()">Dark Mode</button>
+    </div>
+
+    <div class="main-wrapper">
+      <main class="container">
+        <h1>Kalkulator Gaya & Impuls</h1>
+
+        <div class="form-group">
+          <label for="massa">Massa</label>
+          <div>
+            <input type="number" id="massa" placeholder="Massa" oninput="updateButtons()" />
+            <select id="satuanMassa" onchange="updateButtons()">
+              <option value="kg">kg</option>
+              <option value="g">g</option>
+              <option value="mg">mg</option>
+              <option value="ton">ton</option>
+              <option value="lb">lb</option>
+              <option value="ons">ons</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group"><label for="percepatan">Percepatan</label>
+          <input type="number" id="percepatan" placeholder="Percepatan (m/s²)" oninput="updateButtons()" />
+        </div>
+        <div class="form-group"><label for="waktu">Waktu</label>
+          <input type="number" id="waktu" placeholder="Waktu (s)" oninput="updateButtons()" />
+        </div>
+
+        <div class="buttons">
+          <button id="hitungBtn" onclick="hitung()">Hitung</button>
+          <button id="resetBtn" onclick="resetForm()">Reset</button>
+        </div>
+      </main>
+
+      <section class="history-section">
+        <h2>Riwayat Perhitungan</h2>
+        <ul id="historyList"></ul>
+      </section>
+    </div>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span id="closePopup" class="close">&times;</span>
+        <h2>Hasil</h2>
+        <p id="popupGaya"></p>
+        <p id="popupImpuls"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
